@@ -41,9 +41,9 @@ resource "aws_security_group" "allow_ssh" {
 
 # Launch an EC2 instance in the public subnet
 resource "aws_instance" "example" {
-  ami                    = "ami-0fc5d935ebf8bc3bc"
+  ami                    = "ami-0c7217cdde317cfec"
   instance_type          = "t2.micro"
-  key_name               = "terraform-aws"
+  key_name               = "new-key"
   subnet_id              = aws_subnet.public_subnet.id
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
 
@@ -56,10 +56,10 @@ resource "aws_instance" "example" {
     Create_By = "Terraform"
   }
 
-  depends_on = [
-    aws_subnet.public_subnet,
-    aws_security_group.allow_ssh,
-  ]
+  # depends_on = [
+  #   aws_subnet.public_subnet,
+  #   aws_security_group.allow_ssh,
+  # ]
 }
 
 

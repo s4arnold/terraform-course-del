@@ -15,16 +15,16 @@ provider "aws" {
 resource "aws_instance" "example" {
   ami                    = "ami-0fc5d935ebf8bc3bc"
   instance_type          = "t2.micro"
-  key_name               = "terraform-aws"
-  vpc_security_group_ids = ["sg-0c51540c60857b7ed"]
-  subnet_id              = "subnet-096d45c28d9fb4c14"
+  key_name               = "new-key"
+  vpc_security_group_ids = ["sg-02c1117725853987e"]
+  subnet_id              = "subnet-0f0a743882dced945"
   root_block_device {
     volume_size = "10"
   }
   tags = {
     "Name"           = "bastion-host"
     "id"             = "2560"
-    "owner"          = "DevOps Easy Learning"
+    "owner"          = "s4arnold"
     "teams"          = "DEL"
     "environment"    = "dev"
     "project"        = "del"
@@ -33,7 +33,7 @@ resource "aws_instance" "example" {
   }
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = true 
     ignore_changes  = [tags, root_block_device]
   }
 }

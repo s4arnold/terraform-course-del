@@ -13,7 +13,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "my-unique-bucket-name"
+  bucket = "s4arnold-s3-bucket"
   # Prevent accidental deletion of the S3 bucket
   lifecycle {
     prevent_destroy = true
